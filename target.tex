@@ -1,0 +1,410 @@
+\section{Введение}
+\subsection{Актуальность задачи}
+Задача поиска пересечений линий на изображении является очень распространенной и её решение может быть использовано в таких задачах компьютерного зрения как:
+\begin{enumerate}
+	\item Автоматическое определение полей во время спортивных трансляций
+	\item Детектирование ориентиров при автоматическом управлении роботом
+	\item Детектирование железнодорожных стрелок на изображении, сделанном с локомотива поезда
+\end{enumerate} 
+
+
+В данной статье будут рассмотрены подходы к решению задачи применительно к детектированию ж/д стрелок.
+
+
+Для автоматизации процесса управления поездом необходимо создать систему, которая позволяла бы стать надежным автоматическим ассистентом/помощником для машиниста локомотива (стать неким driving assistance), но ни в коем случае не заменить действия человека полностью. 
+Одной из задач такой системы является обнаружение железнодорожных стрелок для обеспечения движения поезда по правильному пути.
+Решение этой задачи позволит обнаруживать разветвления пути заранее (визуально) и анализировать возможные дальнейшие пути движения поезда, выдавая полезную информацию для машиниста локомотива, такую как: "на правой ветке обнаружены вагоны - путь занят!". Это решение значительно повысит безопасность движения на железных дорогах.
+
+%Данная задача является NP-полной \cite{b:np_hard} и ее 
+
+\subsection{Постановка задачи}
+На вход подается изображение — фотография сделанная с головы поезда. Необходимо найти на входном изображении места пересечений железно-дорожных путей. Пересечением будем называть точку, в которой пересекаются рельсы одной ж/д колеи с другой. На выходе алгоритма должен быть набор точек, в которых было обнаружено пересечение.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{pictures/img0002.jpg} 
+	\caption{Пример входного изображения}
+	\label{fig:input}
+\end{figure}
+
+\newpage
+Замечания: 
+\begin{enumerate}
+	\item Точность поиска стрелок - окрестность 30 на 30 пикселей
+	\item Необходимо правильно находить стрелки в пределах 20-30 метрах перед поездом. Нет задачи детектировать стрелки, которые находятся слишком далеко от поезда(40 метров и далее).
+\end{enumerate}
+
+
+\section{Основная часть}
+\subsection{Метод, основанный на преобразовании Хафа}
+\subsubsection{Преобразование Хафа}
+Преобразование Хафа \cite{b:hough_transform} - алгоритм для поиска геометрических объектов на изображении(линии, круги и т.д). В нашем случае понадобится алгоритм Хафа для поиска прямых линий на изображении. 
+
+На вход алгоритму подается набор точек, на выходе имеется набор прямых в координатах $(\rho, \theta)$, где $\rho$ - расстояние от начала координат до прямой, $\theta$ - угол между перпендикуляром к прямой, проведенным из начала координат, и осью абсцисс.
+\newline
+Алгоритм:
+\newline
+Имеется массив аккумулятор A[M, N], где M - квантованные значения параметра $\rho$, N - квантованные значения параметра $\theta$. Изначально в каждой ячейке A находится значения ноль.
+\newline
+Через каждую входную точку проводятся прямые с различными параметрами $\theta$ $\in$ [0, $\pi$]. \ref{fig:hough1}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{pictures/hough1}
+	\caption[Алгоритм Хафа]{}
+	\label{fig:hough1}
+\end{figure}
+
+Каждая прямая голосует за свои параметры ($\rho$, $\theta$), то есть значение значения аккумулятора A[$\rho$, $\theta$] увеличивается на единицу. 
+После голосования максимумы в массиве аккумуляторе соответствуют параметрам итоговых прямых. 
+
+\subsubsection{Алгоритм метода}
+\subsubsection{Поиск границ на изображении}
+Первым шагом метода является поиск границ на входном изображении. Это делается с помощью алгоритма Canny \cite{b:canny}. Алгоритм состоит из пяти важных шагов:
+\begin{enumerate}
+	\item Сглаживание изображения для удаления шумов. Это делается фильтрацией изображения с использованием фильтра Гаусса: \newline
+	$G(x, y, \sigma) = \dfrac{1}{2\pi\sigma^2}\exp^{\dfrac{-(x^2 + y^2)}{2\sigma^2}}$
+	\item Поиск градиентов. Границы выделяются там, где находятся максимумы градиентов. Градиенты ищутся с помощью оператора Собеля, который является аналогом производной в дискретном пространстве. 
+	Псевдокод поиска градиентов с помощью оператора Собеля:
+	\begin{figure}[!h]
+		\centering
+		\includegraphics{pictures/sobel}
+		\caption[Поиск градиентов]{}
+		\label{fig:sobel}
+	\end{figure}
+	\item Подавление не-максимумов. Среди всех максимумов оставляем только те, что являются локальными максимумами в окрестности.
+	\item Двойная пороговая фильтрация. Если значения градиента в точке максимума ниже порога - эта точка отсекается. Таким образом, чем выше значение порога, тем меньше границ будет найдено на изображении. Фильтрация в алгоритме Canny является двойной, лучше всего этот момент разъясняет иллюстрация \ref{fig:cannyth}, здесь только зелёные точки будут выбраны граничными.
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{pictures/canny_th}
+		\caption[Двойная фильтрация]{}
+		\label{fig:cannyth}
+	\end{figure}
+	В нашем случае значение верхнего порога вычисляется с помощью бинаризации Отцу\cite{b:otsu}. Значение нижнего порога берется как половина от значения верхнего порога. За счёт такого выбора порога достигается нормальное выявление границ на изображения с различным уровнем освещенности.
+\newpage
+	\item Трассировка области неоднозначности. Итоговые границы определяются путём удаления всех краёв, несвязанных с "сильными" границами. Проще говоря, пиксели, которые не относятся ни к какой группе - подавляются.
+\end{enumerate}
+Пример применения алгоритма Canny к входному изображению:
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{pictures/canny_res}
+	\caption[Применение алгоритма Canny]{}
+	\label{fig:cannyres}
+\end{figure}
+\newpage
+
+\subsubsection{Разбиение изображения на горизонтальные блоки}
+Сначала разбиваем изображение на горизонтальные блоки \ref{fig:horizontal_blocks}. Размер блоков уменьшается в зависимости от координаты Y на изображении, это сделано для учета перспективной проекции объектов из реального мира на изображении - чем дальше объект, тем меньше он на изображении.
+\newline
+Формула для расчёта размера блока в зависимости от координаты y:
+\newline
+$blockSize = minBlockSize + \dfrac{maxBlockSize - minBlockSize}{imageHeight - maxBlockSize}y$, где  minBlockSize = 7pix, maxBlockSize = 45pix. Данные значения были выбраны из соображений минимизации процента ошибочных предсказаний стрелок и максимизации процента предсказания реальных стрелок.
+В идеале размер горизонтального блока нужно рассчитывать с использованием правил перспективного проецирования\cite{b:projection}, но для этого необходимо знать параметры камеры(угол наклона, расстояния до земли).
+В нашем случае эти параметры не известны, поэтому blockSize рассчитывается просто с помощью линейной интерполяции в зависимости от координаты Y.
+ 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{pictures/horizontal_blocks.png}
+	\caption[Разбиение на горизонтальные блоки]{}
+	\label{fig:horizontal_blocks}
+\end{figure}
+\newpage
+\subsubsection{Поиск рельсов}
+Теперь рассмотрим процесс поиска рельсов на изображении, полученном после применения алгоритма Canny\ref{fig:cannyres}.
+
+После разбиения \ref{fig:horizontal_blocks} в каждом из горизонтальных блоков ищутся прямые линии с помощью алгоритма Хафа \cite{b:hough_transform}. Можно заметить, что прямые близкие к горизонтальным можно отсекать, т.к. они не могут относиться к рельсам. Таким образом, будем искать прямые с помощью модифицированной алгоритма Хафа, в котором $\theta \in [0;\dfrac{\pi}{3}] \cup [\dfrac{2\pi}{3};\pi]$. В качестве порогового значения аккумулятора будем использовать: $\dfrac{2\cdot blockSize}{3}$, это нужно для отсечения маленьких прямых.
+
+Результат применения алгоритма(красным выделены найденные прямые линии в каждом блоке):
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{pictures/hough_lines_res}
+	\caption[Результат применения алгоритма]{}
+	\label{fig:houghlinesres}
+\end{figure}
+
+\subsubsection{Поиск стрелок}
+\paragraph{Построение графа прямых}
+\label{line_graph}
+
+Построим граф, вершинами которого будут найденные прямые. Каждая вершина будет иметь структуру: 
+
+$(p1, p2, childs, parents)$, где $p1$ - нижняя точка прямой, $p2$ - верхняя точка прямой, $childs$ - дети вершины(прямые, которые выходят из прямой, соответствующей текущей вершине), $parents$ - родители вершины(прямые, которые входят в прямую, соответствующую текущей вершине). 
+
+Ребра в графе будут строиться по следующему принципу: начиная с нижнего горизонтального блока, для каждой прямой(curLine) ищем детей в следующем блоке. Прямая(nextLine) будет считать ребенком, если:
+
+$|nextLine.p1.x - curLine.p2.x| < blockEps$, где  
+
+$blockEps = minNeighsEps + \dfrac{maxNeighsEps - minNeighsEps}{imageHeight - maxNeighsEps}y$, 
+
+где  $minNeighsEps = 3$, $maxNeighsEps = 10$. То есть $blockEps$ линейно увеличивается в зависимости от координаты Y.
+
+Найденные вершины добавляются, как дети, в текущую вершину. А также текущая вершина добавляется, как родитель, в каждую из дочерних вершин.
+
+Например, на рисунке \ref{fig:neighscheck}:
+\begin{enumerate}
+	\item прямые 1, 2 являются детьми для прямой 4. А прямая 4 является родителем для прямых 1 и 2.
+	\item Прямая 3 лежит дальше, чем blockEps от прямой 4, поэтому между ними нет связи в графе.
+	\item прямая 4 является ребенком для прямых 5 и 6, но не является ребенком для прямой 7. А прямые 5 и 6 в свою очередь являются родителями для прямой 4.
+\end{enumerate}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{pictures/neighs_check}
+	\caption[Создание ребер]{}
+	\label{fig:neighscheck}
+\end{figure}
+
+\paragraph{Поиск стрелок в графе}
+
+В этом параграфе будет рассмотрен алгоритм поиска стрелок в построенном на предыдущем шаге графе. 
+
+Алгоритм поиска пересекающихся вершин в графе: \newline
+В цикле для каждой вершины графа производим следующие действия:
+\begin{enumerate}
+	\item Если вершина не имеет параллельного родителя - переходим к следующей вершине
+	\item Для каждой пары детей текущей вершины проверяем, пересекаются ли они(\ref{intersection}), если да - верхнюю точку текущей вершины добавляем в итоговый результат найденных стрелок. Таким образом, будут найдены \nameref{fig:ycross} и \nameref{fig:xcross} пересечения.
+	\begin{figure}[!h]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=0.7\linewidth]{pictures/Y_cross}
+			\caption[Y]{}
+			\label{fig:ycross}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=0.7\linewidth]{pictures/X_cross}
+			\caption[X]{}
+			\label{fig:xcross}
+		\end{minipage}
+	\end{figure}
+	
+	\item Пункт 2) повторяется для родителей текущей вершины. Таким образом, будут найдены \nameref{fig:ycrossrevert} и \nameref{fig:xcross_revert} образные пересечения.
+	\begin{figure}[!h]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=0.7\linewidth]{pictures/Y_cross_revert}
+			\caption[Y - обратное]{}
+			\label{fig:ycrossrevert}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=0.7\linewidth]{pictures/X_cross}
+			\caption[X]{}
+			\label{fig:xcross_revert}
+		\end{minipage}
+	\end{figure}
+\end{enumerate}
+\newpage
+
+\paragraph{Алгоритм проверки параллельности прямых}
+Рассмотрим функцию проверки параллельности прямых:
+\begin{enumerate}
+	\item Вычисляем косинусы между прямыми и осью абсцисс.
+	\begin{lstlisting}
+Ox = (1, 0)
+cos1 = cos(line1, Ox)
+cos2 = cos(line2, Ox)
+	\end{lstlisting}
+	\item Вычисляем разность косинусов
+	\begin{lstlisting}
+cos_diff = abs(cos1, cos2)
+	\end{lstlisting}
+	\item Вычисляем насколько близко должны быть прямые, чтобы считать их параллельными. Тут в очередной раз применяется линейная интерполяция. Так как чем ближе рельсы к камере, тем меньше угол должен быть между ними, чтобы посчитать их параллельными. Параметры max\_parallel\_cos и min\_paralle\_cos были получены экспериментально, рассматривая результаты работы алгоритма для крайних случаев 
+	реальных параллельных прямых на разных уровнях высоты.
+	\begin{lstlisting}
+max_parallel_cos = 0.4
+min_paralle_cos = 0.05
+parallel_cos_eps = max_parallel_cos - (max_parallel_cos - 
+min_paralle_cos) / image_height * current_y
+	\end{lstlisting}
+	\item Если разность косинусов, вычисленная ранее, меньше parallel\_cos\_eps, прямые считаются параллельными.
+	\begin{lstlisting}
+return cos_diff < parallel_cos_eps
+	\end{lstlisting}
+\end{enumerate}              
+\paragraph{Алгоритм проверки пересечения вершин}
+\label{intersection}
+На вход поступают v1, v2 -вершины, для которых нужно определить пересекаются ли они.
+А также параметры: глубина проверки пересечений(intersection\_depth) и глубина проверки соседей(check\_neighs\_depth).
+\newline
+Алгоритм:
+\begin{enumerate}
+	\item Если глубина проверки пересечений достигла 0 - возвращаем True - вершины пересекаются.
+	\begin{lstlisting}
+    if intersection_depth == 0:
+		return True
+	\end{lstlisting}
+	\item Если прямые, соответствующие вершинам НЕ параллельны - выбираем у каждой прямой параллельного ребенка. Если параллельные дети существуют, рекурсивно вызываем функцию is\_intersection с уменьшенной на единицу глубиной поиска пересечений.
+	\begin{lstlisting}
+if not is_parallel(v1, v2):
+  parallel_1 = v1.getParallelNeigh()
+  parallel_2 = v2.getParallelNeigh()
+  if parallel_1 and parallel_2:
+    return is_intersection(parallel_1, parallel_2,
+     intersection_depth - 1, check_neighs_depth)
+	\end{lstlisting}
+	\item Если глубина проверки соседей ещё не достигла нуля И у текущих вершин v1, v2 существуют параллельные им дети, то рекурсивно вызываем is\_intersection для найденных параллельных детей с уменьшенной на единицу глубиной проверки соседей.
+	\begin{lstlisting}
+ if check_neighs_depth > 0:
+   parallel_1 = v1.getParallelNeigh()
+   parallel_2 = v2.getParallelNeigh()
+   if parallel_1 and parallel_2:
+    return is_intersection(parallel_1, parallel_2,
+      intersection_depth, check_neighs_depth - 1)
+	\end{lstlisting}
+	\item Если не было выполнено ни одно из первых трех условий - вершины не являются пересекающимися - вернем False.
+\end{enumerate}
+Описанный выше алгоритм применяется как для проверки пересечения между детьми, так и между родителями. В случае проверки пересечения между родителями слово "дети" в алгоритме везде нужно заменить на "родители".
+
+\newpage
+Рассмотрим алгоритм на примере(синими линями изображены границы горизонтальных блоков): 
+\newline
+В данном примере рассматривается прямая 1. \newline На вход функции is\_intersection поступают соседние прямые 2 и 3, и параметры intersection\_depth = 2, check\_neighs\_depth = 1.
+\newline
+Если прямые 2 и 3 НЕ параллельны, то запускаем is\_intersection для прямых 4 и 5 и intersection\_depth = 1, check\_neighs\_depth = 1.
+\newline
+Если прямые 4 и 5 НЕ параллельны, то запускаем  is\_intersection для прямых 6 и 7 и intersection\_depth = 0, check\_neighs\_depth = 1. Теперь функция возвращает True и верхняя точка прямой 1 добавляется, как стрелка в результат.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{pictures/intersection_example}
+	\caption[Intersection]{}
+	\label{fig:intersectionexample}
+\end{figure}
+
+В случае пересечений между родителями пример будет зеркально отражен по оси Y.
+
+\newpage
+Параметр check\_neighs\_depth нужен в случае, когда сами соседи являются параллельными(прямые 2 и 3), но их продолжения(прямые 4 и 5) уже НЕ являются параллельными. Такая ситуация характерна для Y пересечений, которые находятся близко к камере.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.5\textwidth, height=0.4\textheight]{pictures/intersection_example1}
+	\caption{}
+	\label{fig:intersectionexample1}
+\end{figure}
+\paragraph{Аппроксимация близких вершин}
+На последнем этапе близкие по расстоянию стрелки аппроксимируются их центрами масс.
+Эта процедура повторяется рекурсивно, пока в результирующем массиве все стрелки не станут полностью отделимыми друг от друга.
+
+\newpage			
+\subsubsection{Описание данных для тестирования}
+Для тестирования алгоритма было размечено 204 фотографии ж/д путей, сделанных с локомотива. Часть фотографий была сделана при дневном свете \ref{fig:res1}, а часть при искусственном \ref{fig:res3}. Также имеются изображения, сделанные в летний\ref{fig:res1} и в зимний период \ref{fig:res4}.
+\paragraph{Параметры датасета}
+\begin{enumerate}
+	\item Всего стрелок размечено: 1308
+	\item Среднее количество стрелок на одном изображении: 6.3
+	\item Около 70\% изображений сделаны в летний период. Около 30\% в зимний.
+\end{enumerate}
+
+
+\newpage
+\subsubsection{Результаты}
+\paragraph{Примеры работы алгоритма}
+Рассмотрим результаты работы алгоритма на различных изображениях.
+\newline
+Результаты работы на изображении сделанном при дневном:
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{pictures/res1.png}
+	\caption{}
+	\label{fig:res1}
+\end{figure}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{pictures/res2.png}
+	\caption{}
+	\label{fig:res2}
+\end{figure}
+\newpage
+
+Истинное положение стрелок (маркеры) на рисунках \ref{fig:res1}, \ref{fig:res2}, \ref{fig:res3}, \ref{fig:res4} - не обозначены, так как их положения очевидны
+
+Видно, что есть большие стрелки - те, которые находятся достаточно близко к камере, алгоритм распознает очень хорошо. С маленькими стрелками есть небольшие проблемы, например на изображении \ref{fig:res2} самая дальняя маленькая стрелка слева не распозналась.\newline
+Также видно, что достаточно много false positive стрелок получившихся от столбов и заборов. Один из способов их подавления - использовать алгоритм Region growing up(\cite{b:growing_up}) для сегментации изображения снизу вверх.
+
+Теперь рассмотрим результат работы алгоритма при других погодных условиях и искусственном свете. Видно, что алгоритм хорошо справляется и с такими изображениями.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{pictures/res3.png}
+	\caption{}
+	\label{fig:res3}
+\end{figure}
+
+Теперь посмотрим на пример изображения, на котором алгоритм выдал очень плохой результат:
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{pictures/bad_ex.png}
+	\caption{}
+	\label{fig:res4}
+\end{figure}
+\newpage
+Видно, что на изображении есть ярко освещенные солнцем участки, и темная тень от поезда, в связи с этим алгоритм Отцу \cite{b:otsu} выдал достаточно высокое значение пороговых фильтров и рельсы, находящиеся в тени не были восприняты как рёбра алгоритмом Canny\cite{b:canny}. В следствии чего соответствующие рельсам линии не были найдены алгоритмом Хафа \cite{b:hough_transform}.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{pictures/bad_canny.png}
+	\caption[Y - обратное]{}
+	\label{fig:bad_canny}
+\end{figure}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{pictures/bad_lines.png}
+	\caption[Y - обратное]{}
+	\label{fig:bad_lines}
+\end{figure}
+\newpage
+\paragraph{Статистические результаты}
+Вспомним о том, что мы не знаем параметры камеры и поэтому ширину горизонтальных блоков выбираем с помощью линейной интерполяции \ref{line_graph}. Интерполяция происходит между значениями maxBlockSize и minBlockSize. 
+Рассмотрим зависимость результатов обнаружения от выбора этих параметров:
+\begin{table}[!h]
+	\begin{tabular}{|c|c|c|l|l|}
+		\hline
+		\multicolumn{1}{|l|}{\textbf{minBlockEps}} & \multicolumn{1}{l|}{\textbf{maxBlockEps}} & \multicolumn{1}{l|}{\textbf{time(s)}} & \textbf{Precision} & \textbf{Recall} \\ \hline
+		7                                          & 45                                        & 0.8                                   & 0.27               & 0.92            \\ \hline
+		7                                          & 30                                        & 5.5                                   & 0.22                & 0.97            \\ \hline
+		20                                         & 45                                        & 0.08                                  & 0.4               & 0.44             \\ \hline
+	\end{tabular}
+\end{table}
+\newline
+$Precistion = \dfrac{TruePositive}{TruePositive + FalsePositive}$ - процент корректных предсказаний.
+\newline
+$Recall = \dfrac{TruePositive}{TruePositive + FalseNegative}$ - мера, определяющая как хорошо алгоритм находит позитивные примеры(стрелки)
+
+\newpage
+Видно, что при уменьшении максимального размера блока растёт время работы алгоритма. Уменьшается процент корректных предсказаний. И увеличивается количество найденных положительных примеров. 
+
+Также и в обратную сторону, если увеличивать минимальный размер блока, то время работы уменьшается, НО количество найденных положительных примеров и процент корректных предсказаний уменьшаются. 
+
+При большой нижней границе minBlockEps далекие стрелки вообще не находятся, зато хорошо ищутся близкие стрелки, вот пример для minBlockEps = 20pix:
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{pictures/45_20.png}
+	\caption[Y - обратное]{}
+	\label{fig:45_20}
+\end{figure}
+
+
+\newpage
+\addcontentsline{toc}{section}{Список литературы}
+
+\begin{thebibliography}{2}
+	\bibitem{b:hough_transform}
+	\textbf{Преобразование Хафа}. Википедия. [Электронный ресурс] URL - 
+	\href{https://en.wikipedia.org/wiki/Hough\_transform}{https://en.wikipedia.org/wiki/Hough\_transform}
+	
+	\bibitem{b:canny}
+	\textbf{Алгоритм Canny}. [Электронный ресурс] URL - 
+	\href{https://habr.com/ru/post/114589/}{https://habr.com/ru/post/114589/}
+	
+	\bibitem{b:otsu}
+	\textbf{Алгоритм Отцу}. [Электронный ресурс] URL - 
+	\href{https://docs.opencv.org/2.4/doc/tutorials/imgproc/threshold/threshold.html}{https://docs.opencv.org/2.4/doc/tutorials/imgproc/threshold/threshold.html}
+	
+	\bibitem{b:projection}
+	\textbf{Перспективная проекция}. [Электронный ресурс] URL - 
+	\href{http://stratum.ac.ru/education/textbooks/kgrafic/lection04.html}{http://stratum.ac.ru/education/textbooks/kgrafic/lection04.html}
+	
+	\bibitem{b:growing_up}
+	\textbf{Efficient railway tracks detection and turnouts recognition method using HOG features}. [Электронный ресурс] URL - 
+	\href{https://link.springer.com/article/10.1007/s00521-012-0846-0}{https://link.springer.com/article/10.1007/s00521-012-0846-0}
+	
+\end{thebibliography}		  		 		

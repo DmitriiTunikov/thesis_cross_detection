@@ -1,0 +1,1973 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.7.22)  8 MAY 2020 15:33
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**abstract.tex
+(./abstract.tex
+LaTeX2e <2018-12-01>
+! Undefined control sequence.
+l.3 \chapter
+            *[Count-me]{Реферат} % * - не нумеруем
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 \chapter*
+             [Count-me]{Реферат} % * - не нумеруем
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no * in font nullfont!
+Missing character: There is no [ in font nullfont!
+Missing character: There is no C in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no ] in font nullfont!
+
+! Package inputenc Error: Unicode character Р (U+0420)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 \chapter*[Count-me]{Р
+                          еферат} % * - не нумеруем
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character е (U+0435)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 \chapter*[Count-me]{Ре
+                            ферат} % * - не нумеруем
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character ф (U+0444)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 \chapter*[Count-me]{Реф
+                              ерат} % * - не нумеруем
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character е (U+0435)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 \chapter*[Count-me]{Рефе
+                                рат} % * - не нумеруем
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character р (U+0440)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 \chapter*[Count-me]{Рефер
+                                  ат} % * - не нумеруем
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character а (U+0430)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 \chapter*[Count-me]{Рефера
+                                    т} % * - не нумеруем
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character т (U+0442)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 \chapter*[Count-me]{Реферат
+                                      } % * - не нумеруем
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 3--19
+[] 
+ []
+
+! Undefined control sequence.
+l.23 \total
+           {mypages}~c.,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.23 \total{m
+             ypages}~c.,
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no m in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no , in font nullfont!
+! Undefined control sequence.
+l.24 \formbytotal
+                 {myfigures}{рисун}{ок}{ка}{ков},
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no m in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+
+! Package inputenc Error: Unicode character р (U+0440)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 \formbytotal{myfigures}{р
+                               исун}{ок}{ка}{ков},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character и (U+0438)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 \formbytotal{myfigures}{ри
+                                 сун}{ок}{ка}{ков},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character с (U+0441)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 \formbytotal{myfigures}{рис
+                                   ун}{ок}{ка}{ков},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character у (U+0443)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 \formbytotal{myfigures}{рису
+                                     н}{ок}{ка}{ков},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character н (U+043D)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 \formbytotal{myfigures}{рисун
+                                       }{ок}{ка}{ков},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character о (U+043E)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 \formbytotal{myfigures}{рисун}{о
+                                           к}{ка}{ков},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character к (U+043A)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 \formbytotal{myfigures}{рисун}{ок
+                                             }{ка}{ков},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character к (U+043A)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 \formbytotal{myfigures}{рисун}{ок}{к
+                                                 а}{ков},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character а (U+0430)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 ...mbytotal{myfigures}{рисун}{ок}{ка
+                                                  }{ков},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character к (U+043A)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 ...otal{myfigures}{рисун}{ок}{ка}{к
+                                                  ов},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character о (U+043E)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 ...al{myfigures}{рисун}{ок}{ка}{ко
+                                                  в},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character в (U+0432)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 ...{myfigures}{рисун}{ок}{ка}{ков
+                                                  },
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+Missing character: There is no , in font nullfont!
+! Undefined control sequence.
+l.25 \formbytotal
+                 {mytables}{таблиц}{у}{ы}{},
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no m in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+
+! Package inputenc Error: Unicode character т (U+0442)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 \formbytotal{mytables}{т
+                              аблиц}{у}{ы}{},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character а (U+0430)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 \formbytotal{mytables}{та
+                                блиц}{у}{ы}{},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character б (U+0431)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 \formbytotal{mytables}{таб
+                                  лиц}{у}{ы}{},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character л (U+043B)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 \formbytotal{mytables}{табл
+                                    иц}{у}{ы}{},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character и (U+0438)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 \formbytotal{mytables}{табли
+                                      ц}{у}{ы}{},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character ц (U+0446)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 \formbytotal{mytables}{таблиц
+                                        }{у}{ы}{},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character у (U+0443)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 \formbytotal{mytables}{таблиц}{у
+                                            }{ы}{},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character ы (U+044B)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 \formbytotal{mytables}{таблиц}{у}{ы
+                                                }{},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+Missing character: There is no , in font nullfont!
+! Undefined control sequence.
+l.26 \formbytotal
+                 {myappendices}{приложен}{ие}{ия}{ий}.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no m in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+
+! Package inputenc Error: Unicode character п (U+043F)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 \formbytotal{myappendices}{п
+                                  риложен}{ие}{ия}{ий}.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character р (U+0440)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 \formbytotal{myappendices}{пр
+                                    иложен}{ие}{ия}{ий}.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character и (U+0438)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 \formbytotal{myappendices}{при
+                                      ложен}{ие}{ия}{ий}.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character л (U+043B)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 \formbytotal{myappendices}{прил
+                                        ожен}{ие}{ия}{ий}.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character о (U+043E)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 \formbytotal{myappendices}{прило
+                                          жен}{ие}{ия}{ий}.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character ж (U+0436)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 \formbytotal{myappendices}{прилож
+                                            ен}{ие}{ия}{ий}.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character е (U+0435)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 \formbytotal{myappendices}{приложе
+                                              н}{ие}{ия}{ий}.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character н (U+043D)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 \formbytotal{myappendices}{приложен
+                                                }{ие}{ия}{ий}.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character и (U+0438)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 ...bytotal{myappendices}{приложен}{и
+                                                  е}{ия}{ий}.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character е (U+0435)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 ...total{myappendices}{приложен}{ие
+                                                  }{ия}{ий}.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character и (U+0438)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 ...l{myappendices}{приложен}{ие}{и
+                                                  я}{ий}.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character я (U+044F)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 ...myappendices}{приложен}{ие}{ия
+                                                  }{ий}.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character и (U+0438)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 ...pendices}{приложен}{ие}{ия}{и
+                                                  й}.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character й (U+0439)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 ...ndices}{приложен}{ие}{ия}{ий
+                                                  }.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+Missing character: There is no . in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 23--27
+[]     
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 {\noindent
+               \MakeUppercase{Разработка алгоритма сбо...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Ѐ (U+0420)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER А (U+0430)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER З (U+0437)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER р (U+0440)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER А (U+0430)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Б (U+0431)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER о (U+043E)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER т (U+0442)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER К (U+043A)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER А (U+0430)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER А (U+0430)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Л (U+043B)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Г (U+0433)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER о (U+043E)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER р (U+0440)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER И (U+0438)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER т (U+0442)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER М (U+043C)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER А (U+0430)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER с (U+0441)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Б (U+0431)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER о (U+043E)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER р (U+0440)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER К (U+043A)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER И (U+0438)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER п (U+043F)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER А (U+0430)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER З (U+0437)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER Л (U+043B)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+
+! Argument of \DeclareUnicodeCharacter has an extra }.
+<inserted text> 
+                \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \DeclareUnicodeCharacter was complete.
+<to be read again> 
+                   \par 
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! PACKAGE INPUTENC ERROR: UNICODE CHARACTER А (U+0430)
+(INPUTENC)                NOT SET UP FOR USE WITH LATEX.
+
+SEE THE INPUTENC PACKAGE DOCUMENTATION FOR EXPLANATION.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 ...�лгоритма сборки пазла}
+                                                  } % Ключевые сл�...
+
+YOU MAY PROVIDE A DEFINITION WITH
+\par 
+
+! Undefined control sequence.
+l.31 \abstractRu
+                 % Аннотация из renames.tex
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.36 \printTheAbstract
+                       % не удалять
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.39 \total
+           {mypages}~p.,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.39 \total{m
+             ypages}~p.,
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no m in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no , in font nullfont!
+! Undefined control sequence.
+l.40 \total
+           {myfigures}~figures,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no m in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no , in font nullfont!
+! Undefined control sequence.
+l.41 \total
+           {mytables}~tables,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no m in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no , in font nullfont!
+! Undefined control sequence.
+l.42 \total
+           {myappendices}~appendices.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no m in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no . in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 39--43
+[]        
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.45 {\noindent
+               \MakeUppercase{Puzzle assembly algorithm development}} % Кл...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no P in font nullfont!
+Missing character: There is no U in font nullfont!
+Missing character: There is no Z in font nullfont!
+Missing character: There is no Z in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no A in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no Y in font nullfont!
+Missing character: There is no A in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no G in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no R in font nullfont!
+Missing character: There is no I in font nullfont!
+Missing character: There is no T in font nullfont!
+Missing character: There is no H in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no D in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no N in font nullfont!
+Missing character: There is no T in font nullfont!
+! Undefined control sequence.
+l.47 \abstractEn
+                 % Аннотация из renames.tex
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+)
+! Emergency stop.
+<*> abstract.tex
+                
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 29 strings out of 492609
+ 258 string characters out of 6132818
+ 70410 words of memory out of 5000000
+ 4050 multiletter control sequences out of 15000+600000
+ 3640 words of font info for 14 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 12i,0n,10p,198b,58s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!

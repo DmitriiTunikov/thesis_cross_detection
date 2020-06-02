@@ -151,7 +151,7 @@
 В итоге максимумы аккумулятора будут соответствовать параметрам прямых линий на изображении. На рисунке найденные линии обозначены черными точками.
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=0.9\linewidth]{pictures/screenshot004}
+	\includegraphics[width=0.5\linewidth]{pictures/screenshot004}
 	\caption{}
 	\label{fig:screenshot004}
 \end{figure}
@@ -205,7 +205,7 @@
 1. Входное изображение разбивается на сетку, с уменьшением размера блока в зависимости от координаты Y на изображении(это сделано чтобы имитировать перспективную проекцию).
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=1\linewidth]{pictures/screenshot009}
+	\includegraphics[width=0.5\linewidth]{pictures/screenshot009}
 	\caption{}
 	\label{fig:screenshot009}
 \end{figure}
@@ -390,7 +390,6 @@ c_i(wx_i - b) \ge 1 - \epsilon_i, i \in [1, n] \\
 		\caption{}
 		\label{fig:screenshot024}
 	\end{figure}
-	\newpage
 	\item Из найденных окон выбрать наиболее точно описывающее искомый объект. Это можно сделать выбрав окно с максимальной вероятностью нахождения искомого объекта. Например, на рисунке \ref{fig:screenshot024} для правой машины это будет окно с вероятностью 0,9.
 \end{enumerate}
 
@@ -945,10 +944,23 @@ $Recall = \dfrac{TruePositive}{TruePositive + FalseNegative}$ - мера, опр
 Поэтому было проведено исследование зависимости результата(Precision/Recall) от порога предсказанных в окрестности стрелок.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=1\linewidth]{pictures/screenshot23223}
+	\includegraphics[width=0.7\linewidth]{pictures/screenshot23224}
 	\caption{}
-	\label{fig:screenshot23223}
+	\label{fig:screenshot23224}
 \end{figure}
+
+\begin{equation}
+F1 = 2 \dfrac{precision * recall}{precision + recall}
+\end{equation} - среднее гармоническое между precision и recall. Эта метрика дает возможность судить о балансе между precision и recall. В лучшем случае F1 = 1 - идеальный баланс между precision и recall.
+
+Видно, что при увеличении требуемого для подтверждения кол-ва предсказанных стрелок в окрестности(PackageNumber) растет точность предсказаний(Precision) и падает процент найденных стрелок(Recall).
+
+Также по графику зависимости F1(PackageNumber) видно, что наибольшее значения F1 достигает при PackageNumber = 10. 
+Если взять PackageNumber = 10, то получим:\newline
+Precision: 0.78\newline
+Recall: 0.65\newline
+F1: 0.71\newline
+Именно такие параметры являются лучшими с точки зрения метрики F1.
 
 \newpage
 \addcontentsline{toc}{section}{Список литературы}

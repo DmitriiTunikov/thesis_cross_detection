@@ -1,0 +1,10 @@
+curWinStep = minWinStep
+res = []
+for (y = minWinH; y < imageHeight; y += curWinStep)
+  curWinStep = minWinStep + (maxWinStep - minWinStep)/(imageHeight - maxWinStep)y
+  winH = minWinH + (maxWinH - minWinH)/(imageHeight - maxWinH)y
+  winW = 0.7WinH
+  for (x = 0.7WinH; x < imageWidth; x += curWinStep)
+    feature = HOG(image[x - winW: x][y - winH: y])
+    if (svmClassifier.predict(feature))
+      res.add((x, y))

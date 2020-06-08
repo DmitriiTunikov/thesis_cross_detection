@@ -89,16 +89,25 @@
 %%
 %%
 %% Реферат не более 600 знаков на русский или английский текст
-\newcommand{\abstractRu}{В данной работе были рассмотрены два алгоритма поиска пересечений линий на изображении: алгоритм на основе преобразования Хафа для прямых, и алгоритм с обучением машины опорных векторов. В качестве прикладной проблемы решалась задача поиска железнодорожных стрелок на изображениях, сделанных с головы локомотива. В процессе работы был создан датасет из 1357 размеченных железнодорожных стрелок. Данный датасет использовался для проверки качества работы обоих алгоритмов и обучения машины опорных векторов. 
-Алгоритм на основе преобразования Хафа заключался в том, что изображение разбивалось на некоторое количество горизонтальных блоков, и в каждом блоке применялся алгоритм Хафа для поиска прямых, после чего пересечения линий искались с учетом геометрических особенностей различных видов железнодорожных стрелок. 
-В алгоритме с использованием машины опорных векторов ключевым моментом было обучение SVM-классификатора, входными векторами которого были гистограммы ориентированных градиентов окрестностей стрелок, размеченных в датасете. Было обучено несколько классификаторов для поиска различных видов железнодорожных стрелок.
-По результатам работы можно сделать вывод, что подход с машиной опорных векторов показал себя лучше с точки зрения точности обнаружения пересечений.} % ВВЕДИТЕ текст аннотации по-русски
+\newcommand{\abstractRu}{Тема выпускной квалификационной работы: «Поиск пересечений линий на изображении». Цель работы - реализовать алгоритм для поиска железнодорожных стрелок на изображениях, сделанных с локомотива поезда. В ходе работы были решены следующие проблемы:\\\indent 
+1. Реализация двух алгоритмов для поиска ж/д стрелок: на основе преобразования Хафа для прямых, и алгоритм с обучением машины опорных векторов. \\\indent
+2. Создание датасета из 1357 размеченных ж/д стрелок. Данный датасет использовался для проверки качества работы обоих алгоритмов и обучения машины опорных векторов. \\\indent
+3. Сравнение результатов работы разработанных алгоритмов. \\\indent
+Алгоритм на основе преобразования Хафа заключался в том, что изображение разбивалось на некоторое количество горизонтальных блоков, и в каждом блоке применялся алгоритм Хафа для поиска прямых. После чего пересечения найденных линий искались с учетом геометрических особенностей различных видов ж/д стрелок. \\\indent
+В алгоритме с использованием машины опорных векторов был SVM-классификатор, входными векторами которого были гистограммы ориентированных градиентов окрестностей ж/д стрелок, размеченных в датасете. \\\indent
+В результате алгоритм с использованием преобразования Хафа показал точность обнаружения=40\% и процент найденных стрелок=70\%, а алгоритм с построением SVM-классификатора показал точность=73\% и процент найденных стрелок=78\%.\\\indent
+Таким образом, можно сделать вывод о том, что алгоритм с применением SVM-классификатора достаточно устойчив к шуму и показывает хорошие результаты для изображений, сделанных в различных погодных условиях, и работает лучше алгоритма на основе преобразования Хафа.} % ВВЕДИТЕ текст аннотации по-русски
 %%
 %%
-\newcommand{\abstractEn}{This paper introduce two algorithms for searching the intersections of lines in an image: algorithm based on the Hough transform for straight lines and algorithm with training the support vector machine. As an applied problem, searching for railway arrows on images taken from the head of a locomotive was used. Dataset of 1357 labeled railway crosses was created. This dataset was used to check the quality of both algorithms and to train the support vector machine.
-The algorithm based on the Hough transform consisted in the fact that the image was divided into a number of horizontal blocks and in each block the Hough algorithm was used to search for lines. After that the intersections of lines were searched for taking into account the geometric features of various types of intersections.
-In the algorithm using the support vector machine, the key point was the training of the SVM classifier. The input vectors of SVM were histograms of the oriented gradients of the neighborhoods marked in the dataset of the railway arrows. Several classifiers were trained to search for different types of railroad switches.
-According to the results of the work, we can conclude that the approach with the support vector machine has proved to be better in terms of arrows detection accuracy.} % ВВЕДИТЕ текст аннотации по-английски
+\newcommand{\abstractEn}{The theme of this thesis is "Lines intersections detection in the image".
+The purpose of this work is to develop two algorithms for detection railway switches on images taken from a train locomotive. During the work following problems were solved:\\\indent
+1. Developing of two algorithms for railway switches detection: algorithm based on Hough Transform and the algorithm based on support vector machine.\\\indent
+2. Creating dataset of 1357 labeled railway switches. This dataset was used for training SVM classifier and testing both algorithms.\\\indent
+3. Comparison results both of algorithms.\\\indent
+In algorithm based on Hough Transform first step was to divide an image on multiple horizontal blocks and detect lines in each block separately using Hough algorithm. After that intersections of detected lines were find using geometry features of different railboard switches types.
+Input vectors for SVM classifier were histograms of oriented gradients of railway switches marked in dataset. Several classifiers were trained for different switches types.\\\indent
+As a result, the algorithm using the Hough transform showed the detection accuracy=40\% and percentage of switches found=70\%, and the algorithm with the construction of the SVM classifier showed the accuracy=73\% and percentage of arrows found=78\%.\\\indent
+Thus, we can conclude that the algorithm using the SVM classifier is quite stable to noise and shows good results for images taken in various weather conditions. Also the SVM classifier shows better accuracy and percentage of arrows found than Hough based algorithm.} % ВВЕДИТЕ текст аннотации по-английски
 
 
 

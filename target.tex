@@ -8,13 +8,18 @@
 	\item Детектирование железнодорожных стрелок на изображении, сделанном с локомотива поезда
 \end{enumerate} 
 
-
-В данной работе будут рассмотрены подходы к решению задачи применительно к детектированию ж/д стрелок.
-
-
 Для автоматизации процесса управления поездом необходимо создать систему, которая позволяла бы стать надежным автоматическим ассистентом/помощником для машиниста локомотива (стать неким driving assistance), но ни в коем случае не заменить действия человека полностью. 
 Одной из задач такой системы является обнаружение железнодорожных стрелок для обеспечения движения поезда по правильному пути.
 Решение этой задачи позволит обнаруживать разветвления пути заранее (визуально) и анализировать возможные дальнейшие пути движения поезда, выдавая полезную информацию для машиниста локомотива, такую как: "на правой ветке обнаружены вагоны - путь занят!". Это решение значительно повысит безопасность движения на железных дорогах.
+
+\textbf{Целью данной работы} является разработка алгоритма детектирования железнодорожных стрелок на изображении, сделанном с локомотива поезда. Таким образом, необходимо решить следующие задачи:
+\begin{enumerate}
+	\item Разметить датасет из ж/д стрелок на изображениях, сделанных с локомотива поезда.
+	\item Разработать алгоритм поиска стрелок на основе преобразования Хафа\cite{b:hough_transform} и геометрических особенностей различных видов ж/д стрелок.
+	\item Обучить SVM\cite{b:SVM}-классификатор, который по входной гистограмме ориентированных градиентов\cite{b:HOG} смог бы предсказать - принадлежит эта гистограмма изображению ж/д стрелки или нет.
+	\item Привести результаты работы обоих алгоритмов на размеченном датасете и сравнить алгоритмы.
+\end{enumerate}
+
 
 \newpage
 \section{Постановка задачи}
@@ -54,7 +59,7 @@
 	\begin{figure}[!h]
 		\centering
 		\includegraphics[width=0.9\textwidth]{pictures/canny_res}
-		\caption[Применение алгоритма Canny]{}
+		\caption[Применение алгоритма Canny]{Алгоритм Canny}
 		\label{fig:cannyres}
 	\end{figure}
 	\item После чего к полученным границам применяется алгоритма Хафа \cite{b:hough_transform}. Если целью является поиск прямых, то алгоритм Хафа даст следующий результат(красным обозначены найденные линии):
@@ -63,13 +68,13 @@
 		\begin{minipage}{0.45\textwidth}
 			\centering
 			\includegraphics[width=0.7\linewidth]{pictures/canny_ex}
-			\caption[Y]{}
+			\caption[Y]{Алгоритма Canny}
 			\label{fig:canny_ex}
 		\end{minipage}
 		\begin{minipage}{0.45\textwidth}
 			\centering
 			\includegraphics[width=0.7\linewidth]{pictures/hough_ex}
-			\caption[X]{}
+			\caption[X]{Поиск прямых}
 			\label{fig:hough_ex}
 		\end{minipage}
 	\end{figure}
@@ -104,7 +109,7 @@
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.9\linewidth]{pictures/screenshot001}
-	\caption{}
+	\caption{Горизонтальный блок}
 	\label{fig:screenshot001}
 \end{figure}
 
@@ -121,8 +126,8 @@
 	Cov_{yx} & Cov_{yy}\\
 	\end{array}
 	\right), где
-	Cov_{ab} = \dfrac{1}{n} \sum_{1}^{N} (g_a, g_b)
-	$ 
+	Cov_{ab} = \dfrac{1}{N} \sum_{1}^{N} (g_a, g_b)
+	$, так как среднее значение градиента для черно-белого изображения равняется нулю. 
 	\item Вычисляются собственные числа этой матрицы, и если выполнены неравенства:
 	$
 	\begin{cases}
@@ -139,7 +144,7 @@
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.9\linewidth]{pictures/screenshot002}
-	\caption{}
+	\caption{Границы в блоке}
 	\label{fig:screenshot002}
 \end{figure}
 
@@ -152,47 +157,48 @@
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.5\linewidth]{pictures/screenshot004}
-	\caption{}
+	\caption{Поиск линий}
 	\label{fig:screenshot004}
 \end{figure}
 \newpage
-Данный алгоритм работает значительно быстрее преобразования Хафа(ускорение достигается за счет сохранения времени, которое в алгоритме Хафа тратится на перебор $\theta \in [0, \pi]$).
+Данный алгоритм работает значительно быстрее преобразования Хафа(ускорение достигается за счет сохранения времени, которое в алгоритме Хафа тратится на перебор $\theta \in [0, \pi]$). Угол $\theta$ в каждой краевой точке высчитывается с помощью направления собственного вектора матрицы ковариаций в данной точке($\theta$= $\angle(e_2, OY)$). 
 При этом алгоритм качественно находит прямые линии, проходящие через центральную вертикальную ось изображения.
 
+Существуют и другие алгоритмы, позволяющие ускорить оригинальный алгоритм Хафа. Например \cite{b:hough_fast}.
 4. Выделение ж/д колеи по найденным прямым.
 
 В данном алгоритме предполагается, что ширина железнодорожной колеи заранее зафиксирована и приходит на вход алгоритму. 
 
 Поэтому чтобы найти пары рельсов, принадлежащих к одной колее нужно выполнить перебор по всем найденным рельсам, сравнивая при этом расстояние между ними с эталонным расстоянием между рельсами(с некоторой погрешностью $\delta R$).
 
-Но нельзя забывать про то, что изображение делается с камеры и нужно учитывать перспективную проекцию \cite{b:projection} точек изображения на точки в реальном мире, чтобы корректно сравнивать расстояние между рельсами на изображении с расстоянием в мировой системе координат.
+Но нельзя забывать про то, что изображение делается с камеры и нужно учитывать перспективную проекцию \cite{b:projection} точек изображения на точки в реальном мире, чтобы корректно сравнивать расстояние между рельсами на изображении с расстоянием в мировой системе координат. 
 В итоге результат поиска ж/д колеи следующий(на рисунке выделен горизонтальный блок и линии, соответствующие центрам найденных пар рельсов):
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=1\linewidth,height=0.5\linewidth]{pictures/screenshot006}
-	\caption{}
+	\caption{Центр колеи}
 	\label{fig:screenshot006}
 \end{figure}
 
 5. Определение стрелок.
 
 При поиске пересечений найденных рельсов учтем, что нам известен минимальный радиус
-кривой, по которой может двигаться поезд(является параметром алгоритма). Из данного радиуса можно вычислить максимальное боковое отклонение $s_1$, на которое должен отклониться центр колеи, чтобы считаться НЕ основной колеёй. 
+кривой, по которой может двигаться поезд(является параметром алгоритма). Из данного радиуса можно вычислить максимальное боковое отклонение $s_1$, на которое должен отклониться центр колеи, чтобы считаться пройденной колеёй. 
 
 Таким образом, мы ожидаем, что одна из наблюдаемых нами колея всегда имеет боковое отклонение от центра поезда принадлежащее интервалу [$-s_1$, $s_1$].
-Если центр колеи становится < $-s_1$, то это означается, что данная колея является левой веткой основной колеи, в обратном случае правой веткой. В момент времени, когда
-происходит переход данной границы мы можем отметить, что поезд прошел стрелку.
+Если центр колеи становится < $-s_1$, то это означается, что данная колея является левой веткой колеи, по которой поезд движется в данный момент времени. В обратном случае правой веткой. В момент времени, когда происходит переход данной границы мы можем отметить, что поезд прошел стрелку.
 \newpage
-На рисунке обозначены границы $s_1$(теоретическая граница) и $s_2$(экспериментальная граница), где $s_2$ = $s_1$ + $\delta s$(подобрана экспериментально). Пересечение фиксируется в момент времени, когда центр колеи переходит границу $|s_2|$(это место показано стрелками на рисунке).
+На рисунке\ref{fig:screenshot008} обозначены границы $s_1$(теоретическая граница) и $s_2$(экспериментальная граница), где $s_2$ = $s_1$ + $\delta s$(подобрана экспериментально). Пересечение фиксируется в момент времени, когда центр колеи переходит границу $|s_2|$(это место показано стрелками на рисунке).
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=1\linewidth]{pictures/screenshot008}
-	\caption{}
+	\caption{Перемещение X центра колеи}
 	\label{fig:screenshot008}
 \end{figure}
 
-На левом рисунке видно, что есть отклоняющаяся налево колея и поезда пойдет прямо.
-На втором слева рисунке видно, что линия соответствующая прямой колее отклоняется вправо, следовательно поезд прошёл по левой колее и т.д.
+На втором слева рисунке видно, что сначала есть отметка только от колеи, идущей прямо. Потом появляется отметка от колеи отклоняющейся налево. После появления отклоняющейся колеи, отметка от прямой колеи отклоняется направо, а отметка от отклоняющейся колеи остается в центре - следовательно поезд пошёл по отклоняющейся колее, так как теперь её координата центра находится ближе всего к середине поезда. В момент, когда отметка от центра прямого пути проходит порог $s_2$ отмечается стрелка.
+
+На последнем рисунке сначала есть отметка от двух параллельных путей. Потом появляется отметка от присоединяющегося справа пути. И в момент, когда координата центра присоединяющегося пути проходит порог $s_1$ отмечается стрелка.
 
 \subparagraph{Efficient railway tracks detection and turnouts recognition method using HOG features \cite{b:growing_up}}.
 \label{growing_up}
@@ -206,7 +212,7 @@
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.5\linewidth]{pictures/screenshot009}
-	\caption{}
+	\caption{Разбиение на сетку}
 	\label{fig:screenshot009}
 \end{figure}
 
@@ -215,7 +221,7 @@
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=1\linewidth]{pictures/screenshot010}
-	\caption{}
+	\caption{Результат поиска рельсов}
 	\label{fig:screenshot010}
 \end{figure}
 \newpage
@@ -231,7 +237,7 @@
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/screenshot00232}
-	\caption{}
+	\caption{Избавление от шума}
 	\label{fig:screenshot00232}
 \end{figure}
 \newpage
@@ -240,7 +246,7 @@
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\linewidth]{pictures/screenshot00233}
-	\caption{}
+	\caption{График интенсивности}
 	\label{fig:screenshot00233}
 \end{figure}
 \newpage
@@ -249,7 +255,7 @@
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=1\linewidth]{pictures/screenshot00234}
-	\caption{}
+	\caption{Результат поиска полосы}
 	\label{fig:screenshot00234}
 \end{figure}
 
@@ -267,7 +273,7 @@
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.7\linewidth,height=0.4\linewidth]{pictures/screenshot026}
-	\caption{}
+	\caption{Разделение на блоки}
 	\label{fig:screenshot026}
 \end{figure}
 \newpage
@@ -275,7 +281,7 @@
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/screenshot027}
-	\caption{}
+	\caption{Применение алгоритма Хафа}
 	\label{fig:screenshot027}
 \end{figure}
 \newpage
@@ -297,10 +303,31 @@ $
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\linewidth]{pictures/screenshot029}
-	\caption{}
+	\caption{Результат поиска дороги}
 	\label{fig:screenshot029}
 \end{figure}
 
+\subparagraph{A New Lane Line Segmentation and Detection Method based on Inverse Perspective Mapping\cite{b:inverse_mapping}}
+В данной работе описан подход для поиска полосы движения автомобиля, основанный на технике "Inverse Mapping". Точки проецируется из 2D картинки на 3D объект с помощью закона перспективного проецирования\cite{b:projection}, после чего точка 3D объекта проецируется ещё раз на 2D плоскость таким образом, чтобы избежать эффекта перспективы на 2D изображении. В итоге получается следующий результат:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{pictures/screenshot23234}
+	\caption{Inverse Perspective Mapping}
+	\label{fig:screenshot23234}
+\end{figure}
+\newpage
+После чего на полученном изображении параллельные прямые, соответствующие линиям разметки, становятся действительно близкими к параллельным и можно применить алгоритма Хафа для поиска прямых\cite{b:hough_transform} и получить следующий результат детектирования полосы движения:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{pictures/screenshot23235}
+	\caption[Результат детектирования полосы]{Результат детектирования полосы}
+	\label{fig:screenshot23235}
+\end{figure}
+
+Технику "Inverse Mapping" можно применять и для задачи поиска стрелок на изображении. Действительно, если сделать "Inverse Mapping" изображения, сделанного с локомотива поезда можно было бы получить  изображение без эффекта перспективы и на нём прямые линии будет найти проще, чем на исходном изображении. Однако, в нашей задаче параметры камеры, которая установлена на локомотиве неизвестные, поэтому сделать правильный "Inverse Mapping" не удастся, что будет приводить к непредсказуемому итоговому результату.
+
+%	\label{fig:screenshot23231}
+\newpage
 \subsection{Поиск объекта по ключевым точкам}
 Одним из методов поиска объектов на изображении является построение SIFT\cite{b:SIFT} дескриптора и сопоставление этого дескриптора с SIFT дескриптором искомого объекта.
 
@@ -310,7 +337,7 @@ $
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=1\linewidth]{pictures/screenshot011}
-	\caption{}
+	\caption{SIFT пример}
 	\label{fig:screenshot011}
 \end{figure}
 
@@ -324,9 +351,9 @@ $
 \end{enumerate}
 
 \subsection{Обучение классификатора на размеченных данных}
+Распространенным способом поиска объекта на изображении является обучение классификатора на размеченных данных. Рассмотри несколько видов классификаторов.
+\subsubsection{Support vector machine}
 \label{SVM}
-Распространенным способом поиска объекта на изображении является обучение классификатора на размеченных данных.
-
 Рассмотрим классификацию с помощью SVM(машина опорных векторов)\cite{b:SVM}.
 Постановка задачи: \newline
 Необходимо классифицировать данные, каждый объект которых представляется как точка $x^p$ в p-мерном пространстве. Каждая из точек пренадлежит одному из двух классов. Необходим построить гиперплоскость размерности $p-1$, которая линейно разделяла бы входные точки. 
@@ -341,7 +368,7 @@ $wx - b = 1$ и $wx - b = -1$, соответствуют плоскостям, 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.5\linewidth,height=0.5\linewidth]{pictures/screenshot021}
-	\caption{}
+	\caption{SVM гиперплоскость}
 	\label{fig:screenshot021}
 \end{figure}
 
@@ -387,20 +414,38 @@ c_i(wx_i - b) \ge 1 - \epsilon_i, i \in [1, n] \\
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.7\linewidth]{pictures/screenshot024}
-		\caption{}
+		\caption{Окна с объектами}
 		\label{fig:screenshot024}
 	\end{figure}
 	\item Из найденных окон выбрать наиболее точно описывающее искомый объект. Это можно сделать выбрав окно с максимальной вероятностью нахождения искомого объекта. Например, на рисунке \ref{fig:screenshot024} для правой машины это будет окно с вероятностью 0,9.
 \end{enumerate}
 
+\subsubsection{Haar classifier}
+Одним из методов поиска рельсов на изображении также может быть обучение классификатора на основе признаков Хаара. Можно заметить, что область изображения, в которой находится рельс, явно выделяется на фоне окрестностей справа и слева от рельса:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{pictures/screenshot23237}
+	\caption{}
+	\label{fig:screenshot23237}
+\end{figure}\newline
+Таким образом, с использованием большого датасета размеченных рельсов\cite{b:rail_scene} можно обучить классификатор, который по разности интенсивностей пикселей в черной и белой областях(рис.\ref{fig:screenshot23236}) смог бы предсказать, является выделенная область рельсом или нет. Причем рельсы могут идти под наклоном и тогда только вертикальные признаки Хаара не подойдут, поэтому нужно использовать наклонные признаки Хаара:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{pictures/screenshot23236}
+	\caption{Наклонные признаки Хаара}
+	\label{fig:screenshot23236}
+\end{figure}
+ 
+
 \chapter{Основная часть}
 \section{Метод основанный на преобразовании Хафа}
+\label{houghAlgo}
 \subsection{Поиск границ на изображении}
 Первым шагом метода является поиск границ на входном изображении. Это делается с помощью алгоритма Canny \cite{b:canny}:
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{pictures/canny_res}
-	\caption[Применение алгоритма Canny]{}
+	\caption[Применение алгоритма Canny]{Применение алгоритма Canny}
 	\label{fig:cannyres}
 \end{figure}
 
@@ -416,7 +461,7 @@ $blockSize = minBlockSize + \dfrac{maxBlockSize - minBlockSize}{imageHeight - ma
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{pictures/horizontal_blocks.png}
-	\caption[Разбиение на горизонтальные блоки]{}
+	\caption[Разбиение на горизонтальные блоки]{Горизонтальные блоки}
 	\label{fig:horizontal_blocks}
 \end{figure}
 
@@ -429,7 +474,7 @@ $blockSize = minBlockSize + \dfrac{maxBlockSize - minBlockSize}{imageHeight - ma
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{pictures/hough_lines_res}
-	\caption[Результат применения алгоритма]{}
+	\caption[Результат применения алгоритма]{Найденные прямые}
 	\label{fig:houghlinesres}
 \end{figure}
 
@@ -440,7 +485,7 @@ $blockSize = minBlockSize + \dfrac{maxBlockSize - minBlockSize}{imageHeight - ma
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.9\linewidth]{pictures/screenshot0014}
-	\caption{}
+	\caption{Удаление горизонтальных ребер}
 	\label{fig:canny_remove_horizontal}
 \end{figure}
 
@@ -453,7 +498,7 @@ $LinesEps = minLinesEps + \dfrac{maxLinesEps - minLinesEps}{imageHeight - maxLin
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.9\linewidth]{pictures/screenshot0013}
-	\caption{}
+	\caption{Результат поиска рельсов}
 	\label{fig:screenshot0013}
 \end{figure}
 
@@ -481,10 +526,10 @@ $|nextLine.p1.x - curLine.p2.x| < LinesEps$,
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{pictures/neighs_check}
-	\caption[Создание ребер]{}
+	\caption[Создание ребер]{Создание ребер}
 	\label{fig:neighscheck}
 \end{figure}
-
+\newpage
 \subsubsection{Поиск стрелок в графе}
 
 В этом параграфе будет рассмотрен алгоритм поиска стрелок в построенном на предыдущем шаге графе. 
@@ -499,13 +544,13 @@ $|nextLine.p1.x - curLine.p2.x| < LinesEps$,
 		\begin{minipage}{0.45\textwidth}
 			\centering
 			\includegraphics[width=0.7\linewidth,height=0.7\linewidth]{pictures/Y_cross}
-			\caption[Y]{}
+			\caption[Y]{Y - образное}
 			\label{fig:ycross}
 		\end{minipage}
 		\begin{minipage}{0.45\textwidth}
 			\centering
 			\includegraphics[width=0.7\linewidth,height=0.7\linewidth]{pictures/X_cross}
-			\caption[X]{}
+			\caption[X]{Х - образное}
 			\label{fig:xcross}
 		\end{minipage}
 	\end{figure}
@@ -516,13 +561,13 @@ $|nextLine.p1.x - curLine.p2.x| < LinesEps$,
 		\begin{minipage}{0.45\textwidth}
 			\centering
 			\includegraphics[width=0.7\linewidth,height=0.7\linewidth]{pictures/Y_cross_revert}
-			\caption[Y - обратное]{}
+			\caption[Y - обратное]{Y - обратное}
 			\label{fig:ycrossrevert}
 		\end{minipage}
 		\begin{minipage}{0.45\textwidth}
 			\centering
 			\includegraphics[width=0.7\linewidth,height=0.7\linewidth]{pictures/X_cross}
-			\caption[X]{}
+			\caption[X]{X - образное}
 			\label{fig:xcross_revert}
 		\end{minipage}
 	\end{figure}
@@ -599,7 +644,7 @@ $|nextLine.p1.x - curLine.p2.x| < LinesEps$,
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/intersection_example}
-	\caption[Intersection]{}
+	\caption[Intersection]{Пример}
 	\label{fig:intersectionexample}
 \end{figure}
 
@@ -610,7 +655,7 @@ $|nextLine.p1.x - curLine.p2.x| < LinesEps$,
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.3\textwidth, height=0.2\textheight]{pictures/intersection_example1}
-	\caption{}
+	\caption{Рекурсивная проверка соседей}
 	\label{fig:intersectionexample1}
 \end{figure}
 
@@ -622,6 +667,7 @@ $|nextLine.p1.x - curLine.p2.x| < LinesEps$,
 
 \newpage			
 \section{Метод с построением SVM-классификатора}
+\label{SVMClassifier}
 Широко известна техника поиска объектов на изображении с использованием обученного SVM\cite{b:SVM} - классификатора. Применим данный подход, используя в качестве входных векторов - гистограмму ориентированных градиентов\cite{b:HOG} в окрестности размеченных стрелок. 
 \subsection{Разметка изображений}
 Для обучения классификатора необходимо подготовить входной датасет, который должен включать в себя различные виды стрелок(близкие/дальние Х-образные, близкие/дальние Y-образные):
@@ -630,13 +676,13 @@ $|nextLine.p1.x - curLine.p2.x| < LinesEps$,
 	\begin{minipage}{0.3\textwidth}
 		\centering
 		\includegraphics[width=0.3\linewidth]{pictures/screenshot3}
-		\caption[X]{}
+		\caption[X]{Х - образная стрелка}
 		\label{fig:x}
 	\end{minipage}
 	\begin{minipage}{0.3\textwidth}
 		\centering
 		\includegraphics[width=0.3\linewidth]{pictures/screenshot4}
-		\caption[Y]{}
+		\caption[Y]{Y - образная стрелка}
 		\label{fig:y}
 	\end{minipage}
 \end{figure}
@@ -647,7 +693,7 @@ $|nextLine.p1.x - curLine.p2.x| < LinesEps$,
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\linewidth]{pictures/screenshot2}
-	\caption{}
+	\caption{Разметка}
 	\label{fig:screenshot2}
 \end{figure}
 
@@ -658,13 +704,13 @@ $|nextLine.p1.x - curLine.p2.x| < LinesEps$,
 	\begin{minipage}{0.3\textwidth}
 		\centering
 		\includegraphics[width=0.3\linewidth]{pictures/screenshot3}
-		\caption[X]{}
+		\caption[X]{Стрелка вблизи камеры}
 		\label{fig:x}
 	\end{minipage}
 	\begin{minipage}{0.3\textwidth}
 		\centering
 		\includegraphics[width=0.3\linewidth]{pictures/screenshot5}
-		\caption[Y]{}
+		\caption[Y]{Стрелка вдали от камеры}
 		\label{fig:y}
 	\end{minipage}
 \end{figure}
@@ -712,7 +758,7 @@ winW = 0.7WinH\\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/screenshot32}
-	\caption{}
+	\caption{Плохой результат}
 	\label{fig:screenshot32}
 \end{figure}
 
@@ -721,7 +767,7 @@ winW = 0.7WinH\\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/grid_negative.png}
-	\caption{}
+	\caption{Разметка}
 	\label{fig:screenshot32}
 \end{figure}
 \newline
@@ -729,7 +775,7 @@ winW = 0.7WinH\\
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.1\linewidth]{pictures/screenshot2323}
-	\caption{}
+	\caption{Разметка}
 	\label{fig:screenshot2323}
 \end{figure}
 \newpage
@@ -751,7 +797,7 @@ winW = 0.7WinH\\
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/screenshot2324}
-	\caption{}
+	\caption{Результата классификатора}
 	\label{fig:screenshot2324}
 \end{figure}
 
@@ -761,7 +807,7 @@ winW = 0.7WinH\\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/screenshot2325}
-	\caption{}
+	\caption{Поиск рельсов}
 	\label{fig:screenshot2325}
 \end{figure}
 \newpage
@@ -769,7 +815,7 @@ winW = 0.7WinH\\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/full_dataset}
-	\caption{}
+	\caption{Полная разметка}
 	\label{fig:screenshot2325}
 \end{figure}
 
@@ -791,13 +837,13 @@ winW = 0.7WinH\\
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.8\linewidth]{pictures/screenshot2326}
-	\caption{}
+	\caption{Пример результата 1}
 	\label{fig:screenshot2326}
 \end{figure}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\linewidth]{pictures/screenshot2327}
-	\caption{}
+	\caption{Пример результата 2}
 	\label{fig:screenshot2327}
 \end{figure}\newpage
 \subsection{Подтверждение стрелок}
@@ -812,7 +858,7 @@ winW = 0.7WinH\\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/package1}
-	\caption{}
+	\caption{Аппроксимация центрами масс}
 	\label{fig:package1}
 \end{figure}
 \newpage
@@ -820,7 +866,7 @@ winW = 0.7WinH\\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/dbscan}
-	\caption{}
+	\caption{DBSCAN}
 	\label{fig:package1}
 \end{figure}
 
@@ -844,13 +890,13 @@ winW = 0.7WinH\\
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/screenshot0015}
-	\caption{}
+	\caption{Пример 1}
 	\label{fig:res1}
 \end{figure}
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/screenshot0016}
-	\caption{}
+	\caption{Пример 2}
 	\label{fig:res2}
 \end{figure}
 \newpage
@@ -864,7 +910,7 @@ winW = 0.7WinH\\
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/screenshot0017}
-	\caption{}
+	\caption{Искусственный свет}
 	\label{fig:res3}
 \end{figure}
 
@@ -880,13 +926,13 @@ winW = 0.7WinH\\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/screenshot0019}
-	\caption{}
+	\caption{Плохое нахождение ребер}
 	\label{fig:bad_canny}
 \end{figure}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/screenshot0020}
-	\caption{}
+	\caption{Плохое обнаружение линий}
 	\label{fig:bad_lines}
 \end{figure}
 
@@ -916,7 +962,7 @@ $Recall = \dfrac{TruePositive}{TruePositive + FalseNegative}$ - мера, опр
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/45_20.png}
-	\caption[Y - обратное]{}
+	\caption[]{Большие горизонтальные блоки}
 	\label{fig:45_20}
 \end{figure}
 
@@ -926,7 +972,7 @@ $Recall = \dfrac{TruePositive}{TruePositive + FalseNegative}$ - мера, опр
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/103.png}
-	\caption[Y - обратное]{}
+	\caption[Лето]{Лето}
 	\label{fig:103}
 \end{figure}
 \newpage
@@ -934,7 +980,7 @@ $Recall = \dfrac{TruePositive}{TruePositive + FalseNegative}$ - мера, опр
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/146.png}
-	\caption[Y - обратное]{}
+	\caption[Зима]{Зима}
 	\label{fig:105}
 \end{figure}
 \newline
@@ -942,7 +988,7 @@ $Recall = \dfrac{TruePositive}{TruePositive + FalseNegative}$ - мера, опр
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{pictures/isk.png}
-	\caption[Y - обратное]{}
+	\caption[Искусственное освещение]{}
 	\label{fig:isk}
 \end{figure}
 
@@ -986,8 +1032,33 @@ F1(perfect precision and recall): 0.731216598553914\newline
 
 Причём видно, что оба алгоритма кластеризации дают приблизительно одинаковые результат(F1=[0.72,0.73]). 
 
+Однако есть один существенный недостаток этого алгоритма. Если шаг, с которым окно перемещается в процессе предсказания результата очень мал, то количество необходимых вызовов функции предиктора у SVM-классификатора очень большое, что приводит к долгому времени работы.
+
+Поэтому было решено сделать шаг скользящего окна большим и при этом уменьшить порог находящихся радом предсказанных стрелок(PackageNumber) до 2(это значение было вычислено аналогично с предыдущим исследованием, исходя из оптимального значения метрики F1). 
+Таким образом, удалось уменьшить время работы в 6.5 раз и при этом не потерять и даже немного улучшить показатель метрики F1 для обоих алгоритмов кластеризации предсказанных точек.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{pictures/screenshot23238}
+	\caption{Результаты для большого шага окна}
+	\label{fig:screenshot23238}
+\end{figure}\newline
+Наилучшие показатели достигаются при PackageNumber=2:\newline
+Precision: 0.654911838790932\newline
+Recall: 0.8637873754152824\newline
+F1: 0.7449856733524356
+
+
+\chapter{Заключение}
+В ходе работы был размечен датасет из 1357 ж/д стрелок на изображениях, сделанных с локомотива поезда в разных погодных условиях. 
+
+Был разработан алгоритм на основе преобразования Хафа\ref{houghAlgo}, который показал достаточно большую способность к обнаружению стрелок(Recall=0.76), но при этом точность предсказаний оказалась очень низкой(Precision=0.43) из-за большего количество False Positive обнаружений, которые возникают из-за шума на изображении.
+
+Также был обучен SVM-классификатор\ref{SVMClassifier}, который показал достаточно хорошую способность к обнаружению стрелок(Recall=0.86) и при этом хорошую точность предсказаний(Precision=0.65). 
+
+Таким образом, можно сделать вывод о том, что для задачи поиска ж/д стрелок на изображении метод с обучением показал большую точность и устойчивость к шумам. В дальнейших планах попробовать использовать другие входные вектора для обучения SVM-классификатора и уменьшить размер обучающего датасета для ускорения функции-предиктора модели.
+
 \newpage
-\addcontentsline{toc}{section}{Список литературы}
+%\addcontentsline{toc}{section}{Список литературы}
 \begin{thebibliography}{2}
 	\bibitem{b:hough_transform}
 	\textbf{Преобразование Хафа}. Википедия. [Электронный ресурс] URL - 
@@ -1057,7 +1128,7 @@ F1(perfect precision and recall): 0.731216598553914\newline
 	\textbf{Double Lane Line Edge Detection Method Based on
 		Constraint Conditions Hough Transform}. [Электронный ресурс] URL - 
 	\href{https://ieeexplore.ieee.org/document/8572535}{https://ieeexplore.ieee.org/document/8572535}
-	//
+	
 	\bibitem{b:dbscan}
 	\textbf{DBSCAN cluster}. [Электронный ресурс] URL - 
 	\href{https://ru.wikipedia.org/wiki/DBSCAN}{https://ru.wikipedia.org/wiki/DBSCAN}
@@ -1075,5 +1146,23 @@ F1(perfect precision and recall): 0.731216598553914\newline
 	V. Nicolas , A. Robert, "Distribution-dependent Vapnik chervonenkis
 	bounds," European Conference on Computational Learning Theory, pp 230-
 	240, November 1999.
+	
+	\bibitem{b:f1}
+	\textbf{F1 score}. [Электронный ресурс] URL - 
+	\href{https://en.wikipedia.org/wiki/F1_score}{https://en.wikipedia.org/wiki/F1\_score}
+	
+	\bibitem{b:inverse_mapping}
+	\textbf{A New Lane Line Segmentation and Detection Method based on Inverse
+		Perspective Mapping}. [Электронный ресурс] URL - 
+	\href{https://pdfs.semanticscholar.org/fb7a/76f7994cfc06783e65c58537876ee7c6af7b.pdf}{https://pdfs.semanticscholar.org/fb7a/76f7994cfc06783e65c58537876ee7c6af7b.pdf}
+	
+	\bibitem{b:hough_fast}
+	\textbf{A FAST DECISION TECHNIQUE FOR HIERARCHICAL HOUGH
+		TRANSFORM FOR LINE DETECTION}. [Электронный ресурс] URL - 
+	\href{https://arxiv.org/ftp/arxiv/papers/1007/1007.0547.pdf}{https://arxiv.org/ftp/arxiv/papers/1007/1007.0547.pdf}
+	
+	\bibitem{b:rail_scene}
+	\textbf{A dataset for rail scene understanding}. [Электронный ресурс] URL - 
+	\href{http://openaccess.thecvf.com/content_CVPRW_2019/papers/Autonomous\%20Driving/Zendel_RailSem19_A_Dataset_for_Semantic_Rail_Scene_Understanding_CVPRW_2019_paper.pdf}{http://openaccess.thecvf.com/content\_CVPRW\_2019/papers/Autonomous\%20Driving/Zendel\_RailSem19\_A\_Dataset\_for\_Semantic\_Rail\_Scene\_Understanding\_CVPRW\_2019\_paper.pdf}
 	
 \end{thebibliography}		  		 		

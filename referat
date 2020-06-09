@@ -1,9 +1,9 @@
-The theme of this thesis is "Lines intersections detection in the image".
+The thesis theme is "Lines intersections detection in the image".
 The purpose of this work is to develop two algorithms for detection railway switches on images taken from a train locomotive. During the work following problems were solved:
-1. Developing of two algorithms for railway switches detection: algorithm based on Hough Transform and the algorithm based on support vector machine. 
+1. Developing of two algorithms for railway switches detection: algorithm based on Hough Transform and the algorithm based on support vector machine.
 2. Creating dataset of 1357 labeled railway switches. This dataset was used for training SVM classifier and testing both algorithms.
-3. Comparison results both of algorithms.
-In algorithm based on Hough Transform first step was to divide an image on multiple horizontal blocks and detect lines in each block separately using Hough algorithm. After that intersections of detected lines were find using geometry features of different railboard switches types.
+3. Comparison of the results of both algorithms.
+In the algorithm based on Hough Transform first step was to divide an image to multiple horizontal blocks and detect lines in each block separately using Hough algorithm. After that intersections of detected lines were find using geometry features of different railboard switches types.
 Input vectors for SVM classifier were histograms of oriented gradients of railway switches marked in dataset. Several classifiers were trained for different switches types.
-As a result, the algorithm using the Hough transform showed the detection accuracy=40% and percentage of switches found=70%, and the algorithm with the construction of the SVM classifier showed the accuracy=73% and percentage of arrows found=78%.
-Thus, we can conclude that the algorithm using the SVM classifier is quite stable to noise and shows good results for images taken in various weather conditions. Also the SVM classifier shows better accuracy and percentage of arrows found than Hough based algorithm.
+As a result, the algorithm using the Hough transform showed the detection accuracy=40% and percentage of switches found=70%, and the algorithm with the construction of the SVM classifier showed the accuracy=73% and recall=78%.
+Thus, we can conclude that the algorithm using the SVM classifier is quite stable to noise and shows good results for images taken in various weather conditions. Also the SVM classifier shows better accuracy and recall than Hough based algorithm.
